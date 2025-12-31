@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Rutu Bala 💖</title>
+
+<style>
+body{
+  margin:0;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+  font-family: Arial, sans-serif;
+  display:flex;
+  justify-content:center;
+  padding:20px;
+}
+
+.app{
+  width:390px;
+  background:#fff;
+  border-radius:25px;
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+  overflow:hidden;
+}
+
+header{
+  background:#ff4d88;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
+
+nav{
+  display:flex;
+}
+
+nav button{
+  flex:1;
+  padding:12px;
+  border:none;
+  background:#ffe6ef;
+  font-size:14px;
+  cursor:pointer;
+}
+
+nav button.active{
+  background:#ff4d88;
+  color:white;
+}
+
+.page{
+  display:none;
+  padding:20px;
+  text-align:center;
+}
+
+.page.active{display:block;}
+
+p{
+  font-size:16px;
+  line-height:1.8;
+}
+
+.slider img{
+  width:100%;
+  border-radius:18px;
+  display:none;
+}
+
+.slider img.active{display:block;}
+
+.game-box{
+  background:#ffe6ef;
+  padding:20px;
+  border-radius:15px;
+  margin-top:20px;
+}
+
+.game-box button{
+  padding:10px 16px;
+  margin:8px;
+  border:none;
+  border-radius:10px;
+  background:#ff4d88;
+  color:white;
+  font-size:15px;
+  cursor:pointer;
+}
+
+#result, #hugText{
+  margin-top:15px;
+  font-size:20px;
+  font-weight:bold;
+  color:#ff4d88;
+  display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header>
+<h2>🎉 Happy Birthday 🎉</h2>
+<p>💖 Rutu Bala 💖</p>
+</header>
+
+<nav>
+<button class="active" onclick="openPage(0)">💌 Love</button>
+<button onclick="openPage(1)">📸 Memories</button>
+<button onclick="openPage(2)">🎮 Game</button>
+<button onclick="openPage(3)">💖 End</button>
+</nav>
+
+<!-- PAGE 1 -->
+<div class="page active">
+<p>
+Sometimes love is not about talking every day 💭  
+It’s about understanding, patience, and trust 💞  
+Even when we are quiet or busy, the feeling stays strong ❤️  
+We have today 🌸 and today is enough to smile, hope, and believe 🌈  
+Slowly, gently, we will talk more, laugh more, and share again 😊
+</p>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+<p>📸 Our Little Memories 💖</p>
+<div class="slider">
+  <img src="photos/photo1.jpg" class="active">
+  <img src="photos/photo2.jpg">
+  <img src="photos/photo3.jpg">
+  <img src="photos/photo4.jpg">
+</div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+<div class="game-box">
+<p>🎮 Fun Game 😄</p>
+<p>Who is loved the MOST? 💕</p>
+
+<button onclick="win()">💖 Rutu Bala 💖</button>
+<button onclick="lose()">🤔 Someone Else</button>
+
+<div id="result">Love you Bala ❤️😍</div>
+</div>
+
+<div class="game-box">
+<p>🤗 Bonus Game 🤗</p>
+<p>Click for a virtual hug 🫂</p>
+
+<button onclick="hug()">Send Hug 💞</button>
+<div id="hugText">Big Hug for You 🤗💖🤗</div>
+</div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+<p>
+No matter where life takes us 🌍  
+No matter how busy days become ⏳  
+This feeling stays 💗  
+Soft, real, and true ✨  
+
+Love you Bala ❤️  
+Always 🌸
+</p>
+</div>
+
+</div>
+
+<script>
+/* Pages */
+function openPage(n){
+  let pages=document.querySelectorAll('.page');
+  let btns=document.querySelectorAll('nav button');
+  pages.forEach(p=>p.classList.remove('active'));
+  btns.forEach(b=>b.classList.remove('active'));
+  pages[n].classList.add('active');
+  btns[n].classList.add('active');
+}
+
+/* Slider */
+let i=0;
+setInterval(()=>{
+  let imgs=document.querySelectorAll('.slider img');
+  imgs.forEach(img=>img.classList.remove('active'));
+  i=(i+1)%imgs.length;
+  imgs[i].classList.add('active');
+},2500);
+
+/* Game */
+function win(){
+  document.getElementById("result").style.display="block";
+}
+function lose(){
+  alert("Nope 😄 Try again!");
+}
+function hug(){
+  document.getElementById("hugText").style.display="block";
+}
+</script>
+
+</body>
+</html>
